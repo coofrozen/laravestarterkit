@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Animal;
-use DB;
+use App\Models\Movie;
 
-class AnimalController extends Controller
+class MovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,20 +14,7 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        // from animal model select all
-       return Animal::all();
-    }
-
-    public function testindex()
-    {
-        // from animal model select all
-       return DB::select('select * from animals');
-    }
-
-    public function testme()
-    {
-        // from animal model select all
-       return DB::table('animals')->get();
+        return Movie::all();
     }
 
     /**
@@ -39,14 +25,15 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        // get the request body and validate it
         $request->validate([
-            'type' => 'required',
-            'gender' => 'required',
-            'species' => 'required',
+            'genre' => 'required',
+            'title' => 'required',
+            'language' => 'required',
+            'description' => 'required',
+            'is_published' => 'required',
+
         ]);
-        // from the aminal model insert into 
-        return Animal::create($request->all());
+        return Movie::create($request->all());
     }
 
     /**
@@ -57,8 +44,7 @@ class AnimalController extends Controller
      */
     public function show($id)
     {
-        // from the animal model where id = $id 
-        return Animal::find($id);
+        return Movie::find($id);
     }
 
     /**
@@ -70,11 +56,9 @@ class AnimalController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $animal = Animal::find($id);
-        
-        $animal->update($request->all());
-        return $animal;
+        $movie = Movie::find($id);
+        $movie->update($request->all());
+        return $movie;
     }
 
     /**
@@ -85,21 +69,19 @@ class AnimalController extends Controller
      */
     public function destroy($id)
     {
-        // from Animal model delete $id 
-        return Animal::destroy($id);
-
+        return Movie::destroy($id);
     }
 
-    /**
+     /**
      * Remove the specified resource from storage.
      *
      * @param  type $type
      * @return \Illuminate\Http\Response
      */
-    public function Search($type)
+    public function Search($title)
     {
-        // from Animal model delete $id 
-        return Animal::where('type','like','%'.$type.'%')->get();
+        // from Movie model delete $id 
+        return Movie::where('title','like','%'.$title.'%')->get();
 
     }
 }
