@@ -23,16 +23,16 @@ Breeze
 $Sanctum: used for bearer token auth and $Breeze is used for GUI authentication/registration/password reset.
 
 # some api routes revealed
-Non protected Routes
-    http://localhost:8000/api/animals --- method = GET                  ----- returns list of animals in json format
-    http://localhost:8000/api/animals/3 --- method = GET                ----- returns specific animal with the following id
-    http://localhost:8000/api/animals/search/abc --- method = GET       ----- returns animal with where type like '%abc%'
-    http://localhost:8000/api/login --- method = POST                   ----- Login to system - generates token
-    http://localhost:8000/api/register --- method = POST                ----- Registration on the system - generates token
-Protected Routes
-    http://localhost:8000/api/animals --- method = POST       ----- creates new animal
-    http://localhost:8000/api/animals/3 --- method = PUT      ----- edits existing animal
-    http://localhost:8000/api/animals/3 --- method = DELETE   ----- destroys animal
-    http://localhost:8000/api/logout --- method = POST        ----- logout and destroy token
+Non protected Routes <br>
+    http://localhost:8000/api/animals --- method = GET                  ----- returns list of animals in json format <br>
+    http://localhost:8000/api/animals/3 --- method = GET                ----- returns specific animal with the following id <br>
+    http://localhost:8000/api/animals/search/abc --- method = GET       ----- returns animal with where type like '%abc%' <br>
+    http://localhost:8000/api/login --- method = POST                   ----- Login to system - generates token <br>
+    http://localhost:8000/api/register --- method = POST                ----- Registration on the system - generates token <br>
+Protected Routes <br>
+    http://localhost:8000/api/animals --- method = POST       ----- creates new animal <br>
+    http://localhost:8000/api/animals/3 --- method = PUT      ----- edits existing animal <br>
+    http://localhost:8000/api/animals/3 --- method = DELETE   ----- destroys animal <br>
+    http://localhost:8000/api/logout --- method = POST        ----- logout and destroy token <br>
 
 
